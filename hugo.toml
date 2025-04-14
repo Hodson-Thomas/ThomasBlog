@@ -38,3 +38,7 @@ url = "www.linkedin.com/in/thomas-hodson"
 [[params.social]]
 name = "email"
 url = "contact@thomashodson.fr"
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
