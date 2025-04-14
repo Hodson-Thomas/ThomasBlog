@@ -1,0 +1,40 @@
+baseURL = 'https://thomashodson.github.io/'
+languageCode = 'en-us'
+title = "Thomas' blog"
+theme = 'thomas-blog'
+defaultContentLanguage = "en"
+
+[pagination]
+pagerSize = 3 # Number of items per page
+
+[languages]
+
+[languages.en]
+languageName = "English"
+weight = 1
+
+
+[[languages.en.menu.main]]
+name = "Bibliography"
+url = "/about/bibliography"
+
+[[languages.en.menu.main]]
+name = "About"
+url = "/about/about"
+
+[params]
+
+contactEmail = "contact@thomashodson.fr"
+companyWebsite = "https://thomashodson.fr/"
+
+[[params.social]]
+name = "github"
+url = "https://github.com/Hodson-Thomas"
+
+[[params.social]]
+name = "linkedin"
+url = "www.linkedin.com/in/thomas-hodson"
+
+[[params.social]]
+name = "email"
+url = "contact@thomashodson.fr"

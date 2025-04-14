@@ -1,0 +1,50 @@
+{{ define "main" }}
+
+<aside class="article-navigation">
+  <h2>Contents</h2>
+  <nav>
+    <ol>
+      {{ $currentPage := . }}
+      {{ range where .Site.RegularPages "Section" $currentPage.Section }}
+      {{ if eq .File.BaseFileName "introduction" }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Name }}</a>
+      </li>
+      {{ end }}
+      {{ end }}
+      {{ $currentPage := . }}
+      {{ range where .Site.RegularPages "Section" $currentPage.Section }}
+      {{ if and (gt (len (split .File.Path "\\")) 2) (ne .File.BaseFileName "introduction") }}
+      {{ $titleParts := split .Title "@" }}
+      <li>
+        {{ if gt (len $titleParts) 1 }}
+        {{ $displayTitle := index $titleParts 1 | humanize }} <!-- Merge all parts after the first '_' -->
+        <a href="{{ .RelPermalink }}">{{ $displayTitle }}</a>
+        {{ else }}
+        {{ $displayTitle := .Title }} <!-- Fallback to the full title if no '_' is found -->
+        <a href="{{ .RelPermalink }}">{{ $displayTitle }}</a>
+        {{ end }}
+      </li>
+      {{ end }}
+      {{ end }}
+    </ol>
+  </nav>
+</aside>
+
+<article class="articles-content">
+  <h1>
+    {{ $titleParts := split .Title "@" }}
+    {{ if gt (len $titleParts) 1 }}
+    {{ $displayTitle := index $titleParts 1 | humanize }}
+    {{ $displayTitle }}
+    {{ else }}
+    {{ $displayTitle := .Title }}
+    {{ $displayTitle }}
+    {{end}}
+  </h1>
+  {{ .Content }}
+</article>
+
+{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+
+{{ end }}

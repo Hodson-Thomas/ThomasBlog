@@ -1,0 +1,22 @@
+name = 'Theme name'
+license = 'MIT'
+description = 'My custom theme'
+
+
+# Taxonomy terms
+tags = ['blog', 'company', 'programming', 'computer-science']
+features = ['courses', 'posts', 'articles']
+
+# If the theme has multiple authors
+authors = [
+  { name = 'Name of author', homepage = 'Website of author' },
+  { name = 'Name of author', homepage = 'Website of author' },
+]
+
+# If the theme has a single author
+[author]
+name = 'Thomas Hodson'
+
+# If porting an existing theme
+[original]
+author = 'Hodson Thomas'

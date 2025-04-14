@@ -1,0 +1,112 @@
+/* NAVIGATION */
+
+
+aside.article-navigation {
+    position: fixed;
+    top: var(--header-height);
+    padding-inline: 1rem;
+}
+
+aside.article-navigation>nav {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    overflow-y: scroll;
+}
+
+aside.article-navigation nav a {
+    width: 100%;
+    transition: color 150ms;
+    color: var(--color);
+}
+
+aside.article-navigation nav a:hover {
+    color: var(--accent-color);
+}
+
+/* END NAVIGATION */
+
+/* ARTICLES */
+
+article.articles-content {
+    min-height: calc(100dvh - var(--header-height));
+    max-width: min(1000px, 90%);
+    margin-top: calc(var(--header-height) + 2rem);
+    margin-inline: auto;
+    padding-inline: 2rem;
+    padding-bottom: 5rem;
+    margin-left: 200px;
+}
+
+article.articles-content p {
+    text-align: justify;
+    text-indent: 1rem;
+    max-width: 80ch;
+    margin-inline: auto;
+}
+
+article.articles-content code {
+    background-color: var(--background-header);
+    padding: .3rem .7rem;
+    border-radius: .5rem;
+}
+
+article.articles-content pre>code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+
+article.articles-content pre {
+    background-color: var(--background-header) !important;
+    padding: 1rem;
+    border-radius: .5rem;
+    max-width: 90%;
+    overflow-y: scroll;
+    margin-inline: auto;
+}
+
+article.articles-content table {
+    width: 90%;
+    margin-inline: auto;
+    border-collapse: collapse;
+}
+
+article.articles-content th,
+article.articles-content td {
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+article.articles-content img {
+    max-width: 90%;
+    margin-inline: auto;
+}
+
+/* END ARTICLES */
+
+section.articles-list {
+    min-height: calc(100dvh - var(--header-height) - var(--footer-height));
+    max-width: min(1000px, 90%);
+    margin-inline: auto;
+    margin-block: calc(var(--header-height) + 3rem);
+}
+
+a.article-item {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color);
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    justify-content: space-between;
+    background-color: var(--background-header);
+}
+
+section.articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  color-scheme: light dark;
+  --background: #fff;
+  --background-secondary: #eaeaea;
+  --background-header: #fafafa;
+  --color: #222;
+  --color-variant: black;
+  --color-secondary: #999;
+  --border-color: #dcdcdc;
+  --table-color: #dcdcdc;
+  --accent-color: #6200EA;
+  --header-height: 7rem;
+  --header-progress-bar-height: 5px;
+  --box-shadow-color: #ccc;
+  --footer-height: 15rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #232425;
+    --background-secondary: #3b3d42;
+    --background-header: #1b1c1d;
+    --color: #a9a9b3;
+    --color-variant: white;
+    --color-secondary: #b3b3bd;
+    --border-color: #4e4e57;
+    --table-color: #4e4e57;
+    --accent-color: #6200EA;
+    --box-shadow-color: #121212;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--color);
+  width: 100vw;
+  width: 100dvw;
+  font-family: sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.125rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title {
+  color: var(--color-variant);
+}
+
+a.social-icon>svg {
+  transition: stroke 150ms;
+  stroke: var(--color);
+}
+
+a.social-icon>svg:hover {
+  stroke: var(--accent-color);
+}
+
+/* HOME PAGE */
+
+section.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  justify-content: center;
+  margin-top: calc(var(--header-height) + 3rem);
+  margin-bottom: 3rem;
+  min-height: calc(100dvh - (var(--header-height) + var(--footer-height) + 6rem));
+}
+
+section.home-page>img {
+  width: max(25%, 200px);
+  aspect-ratio: 1;
+  border-radius: 100vh;
+}
+
+section.home-page>h1 {
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
+}
+
+section.home-page div.counters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+section.home-page span.counter {
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--accent-color);
+}
+
+section.home-page p.description {
+  width: 40ch;
+  text-align: center;
+}
+
+/* END HOME PAGE */

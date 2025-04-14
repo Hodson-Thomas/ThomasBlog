@@ -1,0 +1,43 @@
+{{ define "main" }}
+
+<section class="home-page">
+
+    <img class="me" src="me.jpeg" alt="me" />
+
+    <h1>{{ .Title }}</h1>
+
+    <p class="description">Welcome on my blog ! I write articles, courses about programming and other topics !</p>
+
+    {{- with .Site.Params.social }}
+    <div>
+        {{ partial "social-icons.html" . }}
+    </div>
+    {{- end }}
+
+    <div class="counters">
+        <p>
+            {{ $articles := where .Site.RegularPages "Section" "articles" }}
+            <span class="counter">{{ len $articles }}+</span><small>Articles</small>
+        </p>
+        <p>
+            {{ $courses := where .Site.RegularPages "Section" "courses" }}
+            {{ $dir := "courses" }}
+            {{ $subDirs := readDir (printf "content/%s" $dir) }}
+            {{ $subDirCount := 0 }}
+
+            {{ range $subDirs }}
+            {{ if .IsDir }}
+            {{ $subDirCount = add $subDirCount 1 }}
+            {{ end }}
+            {{ end }}
+            <span class="counter">{{ $subDirCount }}+</span><small>Courses</small>
+        </p>
+        <p>
+            {{ $posts := where .Site.RegularPages "Section" "posts" }}
+            <span class="counter">{{ len $posts }}+</span><small>Posts</small>
+        </p>
+    </div>
+
+</section>
+
+{{ end }}

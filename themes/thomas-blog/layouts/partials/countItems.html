@@ -1,0 +1,15 @@
+{{/* layouts/partials/count-items.html */}}
+{{- define "countItems" -}}
+{{- $path := .path -}}
+{{- $total := 0 -}}
+
+{{- $items := readDir $path -}}
+{{- range $items -}}
+{{- $total = add $total 1 -}}
+{{- if .IsDir -}}
+{{- $total = add $total (partial "countItems" (dict "path" (printf "%s/%s" $path .Name))) -}}
+{{- end -}}
+{{- end -}}
+
+{{- return $total -}}
+{{- end -}}

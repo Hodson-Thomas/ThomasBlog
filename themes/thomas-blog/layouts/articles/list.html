@@ -1,0 +1,20 @@
+{{ define "main" }}
+<section class="articles-list">
+  <h1>Articles</h1>
+  <nav>
+    {{ $folderPath := "articles" }}
+    {{ $subfolders := readDir (printf "content/%s" $folderPath) }}
+    {{ range $subfolders }}
+
+    {{ if .IsDir }}
+
+    <a href="/articles/{{ .Name }}/introduction" class="article-item">
+      <h2>{{ .Name }}</h2>
+      <p>{{ len (readDir (printf "content/%s/%s" $folderPath .Name)) }} articles</p>
+    </a>
+    {{ end }}
+
+    {{ end }}
+  </nav>
+</section>
+{{ end }}

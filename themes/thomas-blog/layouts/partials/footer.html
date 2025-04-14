@@ -1,0 +1,37 @@
+<div class="footer-display">
+
+    <div class="footer-details">
+        <h2 class="site-name">Thomas' blog</h2>
+
+        {{- with .Site.Params.social }}
+        <div>
+            {{ partial "social-icons.html" . }}
+        </div>
+        {{- end }}
+        <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+        <p>Copyright {{ now.Year }}. All rights reserved.</p>
+    </div>
+
+    <div class="footer-contact">
+        <h3>Contact</h3>
+
+        <a href="mailto:{{ .Site.Params.contactEmail}}">{{ .Site.Params.contactEmail }}</a>
+        <a href="{{ .Site.Params.companyWebsite }}">{{ .Site.Params.companyWebsite }}</a>
+
+    </div>
+
+    <div class="footer-menu">
+        <h3>Menu</h3>
+        <nav>
+
+            <ul>
+                {{ range .Site.Menus.main }}
+                <li>
+                    <a href="{{ .URL }}">{{ .Name }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </nav>
+    </div>
+
+</div>

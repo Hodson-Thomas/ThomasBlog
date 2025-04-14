@@ -1,0 +1,46 @@
+<div class="navigation">
+    <div class="navigation-title">
+        <h1 id="title">
+            <a href="/">
+                {{ site.Title }}
+            </a>
+        </h1>
+        <button id="expand-header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-justify"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
+            </svg>
+        </button>
+    </div>
+
+    <nav role="navigation" class="primary-navigation" id="primary-navigation">
+
+        {{ $articlesExist := (where .Site.RegularPages "Section" "articles") }}
+        {{ $coursesExist := (where .Site.RegularPages "Section" "courses") }}
+        {{ $postsExist := (where .Site.RegularPages "Section" "posts") }}
+
+        <ul>
+            {{ if $articlesExist }}
+            <li><a href="/articles">Articles</a></li>
+            {{ end }}
+
+            {{ if $coursesExist }}
+            <li><a href="/courses">Courses</a></li>
+            {{ end }}
+
+            {{ if $postsExist }}
+            <li><a href="/posts">Posts</a></li>
+            {{ end }}
+
+            {{ range .Site.Menus.main }}
+            <li>
+                <a href="{{ .URL }}">{{ .Name }}</a>
+            </li>
+            {{ end }}
+        </ul>
+    </nav>
+</div>
+<div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
+</div>
