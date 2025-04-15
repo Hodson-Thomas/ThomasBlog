@@ -22,15 +22,15 @@
 
         <ul>
             {{ if $articlesExist }}
-            <li><a href="/articles">Articles</a></li>
+            <li><a href="{{ .Site.BaseURL }}/articles">Articles</a></li>
             {{ end }}
 
             {{ if $coursesExist }}
-            <li><a href="/courses">Courses</a></li>
+            <li><a href="{{ .Site.BaseURL }}/courses">Courses</a></li>
             {{ end }}
 
             {{ if $postsExist }}
-            <li><a href="/posts">Posts</a></li>
+            <li><a href="{{ .Site.BaseURL }}/posts">Posts</a></li>
             {{ end }}
 
             {{ range .Site.Menus.main }}
