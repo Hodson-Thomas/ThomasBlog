@@ -1,4 +1,4 @@
-baseURL = 'https://thomashodson.github.io/'
+baseURL = 'https://hodson-thomas.github.io/ThomasBlog/'
 languageCode = 'en-us'
 title = "Thomas' blog"
 theme = 'thomas-blog'
@@ -40,5 +40,5 @@ name = "email"
 url = "contact@thomashodson.fr"
 
 [caches]
-  [caches.images]
-    dir = ':cacheDir/images'
+[caches.images]
+dir = ':cacheDir/images'
