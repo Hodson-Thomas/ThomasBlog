@@ -15,27 +15,37 @@
     {{- end }}
 
     <div class="counters">
-        <p>
-            {{ $articles := where .Site.RegularPages "Section" "articles" }}
-            <span class="counter">{{ len $articles }}+</span><small>Articles</small>
-        </p>
-        <p>
-            {{ $courses := where .Site.RegularPages "Section" "courses" }}
-            {{ $dir := "courses" }}
-            {{ $subDirs := readDir (printf "content/%s" $dir) }}
-            {{ $subDirCount := 0 }}
 
-            {{ range $subDirs }}
-            {{ if .IsDir }}
-            {{ $subDirCount = add $subDirCount 1 }}
-            {{ end }}
-            {{ end }}
-            <span class="counter">{{ $subDirCount }}+</span><small>Courses</small>
-        </p>
+        {{ $articles := where .Site.RegularPages "Section" "articles" }}
+        {{ if gt (len $articles) 0 }}
         <p>
-            {{ $posts := where .Site.RegularPages "Section" "posts" }}
-            <span class="counter">{{ len $posts }}+</span><small>Posts</small>
+            <span class="counter">{{ len $articles }}</span><small>Articles</small>
         </p>
+        {{ end }}
+
+        {{ $courses := where .Site.RegularPages "Section" "courses" }}
+        {{ $dir := "courses" }}
+        {{ $subDirs := readDir (printf "content/%s" $dir) }}
+        {{ $subDirCount := -1 }}
+
+        {{ range $subDirs }}
+        {{ if .IsDir }}
+        {{ $subDirCount = add $subDirCount 1 }}
+        {{ end }}
+        {{ end }}
+
+        {{ if gt $subDirCount 0 }}
+        <p>
+            <span class="counter">{{ $subDirCount }}</span><small>Courses</small>
+        </p>
+        {{ end }}
+
+        {{ $posts := where .Site.RegularPages "Section" "posts" }}
+        {{ if gt (len $posts) 0 }}
+        <p>
+            <span class="counter">{{ len $posts }}</span><small>Posts</small>
+        </p>
+        {{ end }}
     </div>
 
 </section>
